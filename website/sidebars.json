@@ -1,0 +1,72 @@
+{
+  "docs": {
+    "Staff Resources": [
+		"documentation",
+		{
+			"type": "subcategory",
+			"label": "Documentation",
+			"ids": [
+				"documentation/policies",
+				"documentation/vision",
+				"documentation/confidentiality"
+			]
+		},
+		{
+			"type": "subcategory",
+			"label": "Koha Training",
+			"ids": [
+				"training/checklist",
+				"training/administration",
+				"training/patrons",
+				"training/circulation",
+				"training/cataloging",
+				"training/tools",
+				"training/reports",
+				"training/opac"
+			]
+		},
+		{
+			"type": "subcategory",
+			"label": "Helpers",
+			"ids": [
+				"helpers/prefixes",
+				"helpers/troubletracker"
+			]
+		},
+		{
+			"type": "subcategory",
+			"label": "Promo Materials",
+			"ids": [
+				"promo/brochures",
+				"promo/flyers"
+			]
+		}		
+	]
+  },
+  "docs-other": {
+	"Koha Administration Resources": [
+		"customization",
+		{
+			"type": "subcategory",
+			"label": "JS + CSS Projects",
+			"ids": [
+				"projects/additemhelper",
+				"projects/illitypedefaults",
+				"projects/itypelimit",
+				"projects/megamenu",
+				"projects/nachoitemmodal",
+				"projects/newitemsharing",
+				"projects/patronautofilltoggle"
+			]
+		},
+		{
+			"type": "subcategory",
+			"label": "SQL",
+			"ids": [
+				"sql/sqltips",
+				"sql/sharedsql"
+			]
+		}
+	]
+  }  
+}

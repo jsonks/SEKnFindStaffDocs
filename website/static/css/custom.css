@@ -1,0 +1,152 @@
+/* your custom css */
+
+@media only screen and (min-device-width: 360px) and (max-device-width: 736px) {
+}
+
+@media only screen and (min-width: 1024px) {
+}
+
+@media only screen and (max-width: 1023px) {
+}
+
+@media only screen and (min-width: 1400px) {
+}
+
+@media only screen and (min-width: 1500px) {
+}
+
+p img, li img {
+	border: 1px solid gray;
+}
+
+iframe {
+	border: 1px solid gray;
+}
+
+#hidden {
+	display: none;
+}
+
+/*MEGAMENU*/
+    /*browse menu*/
+    #browse-menu {
+       font-family: Roboto, Arial;
+    }
+
+    #browse-menu {
+        background-color: #fcb03f;
+        list-style: outside none none;
+        /*margin: 0 0 0 -20px;*/
+        padding: 1em;
+        text-align: center;
+        width: 16em;
+    }
+
+    #browse {
+        color: white;
+    }
+
+    #browse-menu a {
+        text-decoration: none;
+        color: #d5d5d5;
+    }
+
+    #browse-menu a:hover {
+        color: #319cce;
+    }
+
+    .dd-pullright {
+        background-color: #3A3A3A;
+        float: left;
+        height: 32em;
+        left: -999em;
+        margin: 0;
+        min-width: 50em;
+        position: absolute;
+        list-style: none;
+    }
+
+    #browse-column > ul > li > a {
+       color: #d5d5d5;
+    }
+
+    #browse-column > ul > li > a:hover {
+       color: #319cce;
+    }
+
+    .browse-vert-menu li:hover .dd-pullright {
+        left: 16em;
+        top: 0;
+        z-index: 5;
+    }
+
+    #browse-menu:hover .browse-vert-menu {
+        top: 18.15em; /*This is a static position that needs adjusted*/
+        margin-left: -1em;
+    }
+
+    .browse-column {
+        display: inline;
+        float: left;
+        margin: 0.5em 1em 2em 2em;
+        min-width: 12em;
+        position: relative;
+    }
+
+    .browse-column > h3 {
+        border-bottom: 1px solid;
+        color: #d5d5d5;
+        margin-bottom: 5px;
+    }
+
+    .browse-column > ul {
+        margin: 0;
+    	padding-left: 0;
+    }
+
+    .browse-column > ul > li {
+        list-style: outside none none;
+    }
+
+    .browse-vert-menu {
+        background-color: #3A3A3A;
+        border-right: 0.18em solid #676767;
+        height: 32em;
+        list-style: outside none none;
+        padding: 0;
+        position: absolute;
+        top: -999em;
+        width: 16em;
+        z-index: 1000;
+    }
+
+    .browse-vert-menu > li {
+        padding: 0.75em 1.5em;
+        text-align: left;
+        width: 16em;
+    }
+
+    .browse-vert-menu > li:hover {
+        background-color: #4A4A4A;
+        border-right: 0.25em solid #319cce;
+    }
+
+    .browse-la-widget {
+        margin-top: 35px;
+    }
+	
+.imageAlignTop .blockImage {
+	margin-bottom: 20px;
+	max-width: 175px;
+}
+
+.memberlist {
+	-moz-column-count: 4;
+    -moz-column-gap: 20px;
+    -webkit-column-count: 4;
+    -webkit-column-gap: 20px;
+    column-count: 4;
+    column-gap: 20px;
+	list-style: none;
+	text-align: left;
+}
