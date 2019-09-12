@@ -1,0 +1,453 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Item Cataloging Helper · SEKnFind Staff Resources</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This project streamlines the addition of items by rearranging the &#x27;Add Item&#x27; fields into a more logical order and prefilling collection code when a shelf location is selected.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Item Cataloging Helper · SEKnFind Staff Resources"/><meta property="og:type" content="website"/><meta property="og:url" content="https://jsonks.github.io/SEKnFindStaffDocs/"/><meta property="og:description" content="&lt;p&gt;This project streamlines the addition of items by rearranging the &#x27;Add Item&#x27; fields into a more logical order and prefilling collection code when a shelf location is selected.&lt;/p&gt;
+"/><meta property="og:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/SEKnFindStaffDocs/img/seknfind.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/SEKnFindStaffDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/SEKnFindStaffDocs/css/main.css"/><script src="/SEKnFindStaffDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/SEKnFindStaffDocs/"><img class="logo" src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources"/><h2 class="headerTitleWithLogo">SEKnFind Staff Resources</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/SEKnFindStaffDocs/docs/documentation" target="_self">Documentation</a></li><li class=""><a href="/SEKnFindStaffDocs/docs/usergrouparchives" target="_self">User Group Archives</a></li><li class="siteNavGroupActive"><a href="/SEKnFindStaffDocs/docs/customization" target="_self">Customization</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>JS + CSS Projects</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Koha Administration Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/customization">Customizing Koha</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">JS + CSS Projects</h4><ul><li class="navListItem navListItemActive"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/additemhelper">Item Cataloging Helper</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/illitypedefaults">ILL Item Type Defaults</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/itypelimit">Item Type Limit Warning</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/megamenu">Megamenu</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/nachoitemmodal">Nacho Item Modal</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/newitemsharing">New Item Sharing</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/patronautofilltoggle">Patron Autofill Toggle</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SQL</h4><ul><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sqltips">SQL Tips</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sharedsql">Shared SQL</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Item Cataloging Helper</h1></header><article><div><span><p>This project streamlines the addition of items by rearranging the 'Add Item' fields into a more logical order and prefilling collection code when a shelf location is selected.</p>
+<h2><a class="anchor" aria-hidden="true" id="sorted-fields"></a><a href="#sorted-fields" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Sorted Fields</h2>
+<p><img src="/SEKnFindStaffDocs/docs/assets/addItemHelper1.png" alt="additemhelper"></p>
+<h2><a class="anchor" aria-hidden="true" id="helper-in-action"></a><a href="#helper-in-action" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Helper in Action</h2>
+<p><img src="/SEKnFindStaffDocs/docs/assets/addItemHelper2.gif" alt="additemhelper"></p>
+<h2><a class="anchor" aria-hidden="true" id="js"></a><a href="#js" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS</h2>
+<h3><a class="anchor" aria-hidden="true" id="add-classes"></a><a href="#add-classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add classes</h3>
+<p>This makes it easier to manipulate each field.</p>
+<ul>
+<li>Fields that will be used and moved around are given unique classes.</li>
+<li>Fields that will not be used are given the &quot;hidden&quot; class.</li>
+<li>Fields that are required are given the &quot;required&quot; class (this is to create the illusion that the fields are required -- to enforce a requirement you can set it up in the MARC framework).</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Classes</span>
+$(<span class="hljs-string">'#cat_additem span:contains("Withdrawn status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'withdrawn'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Lost status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'lost'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Not for loan")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'notloan'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Permanent location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'homebranch'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Current location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'holdingbranch'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Shelving location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'shelfloc'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Collection code")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'ccode'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Full call number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'callnumber'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Barcode")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'bcode'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Copy number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'copy'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Koha item type")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'itype'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Date acquired")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'accessiondate'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Source of acquisition")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'source'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Cost, normal purchase price")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'purchase'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Cost, replacement price")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'replacement'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Non-public note")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'nonpublic'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Public note")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'public'</span>);
+
+<span class="hljs-comment">//Hidden</span>
+$(<span class="hljs-string">'#cat_additem span:contains("Source of classification or shelving scheme")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+$(<span class="hljs-string">'#cat_additem span:contains("Materials specified (bound volume or other part)")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Damaged status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+$(<span class="hljs-string">'#cat_additem span:contains("Use restrictions")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+$(<span class="hljs-string">'#cat_additem span:contains("Inventory number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Shelving control number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+$(<span class="hljs-string">'#cat_additem span:contains("Coded location qualifier")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Uniform Resource Identifier")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Price effective from")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+
+<span class="hljs-comment">//Required fields</span>
+$(<span class="hljs-string">'#cat_additem .accessiondate label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .source label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .purchase label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .replacement label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .shelfloc label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .ccode label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .callnumber label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .bcode label'</span>).addClass(<span class="hljs-string">'required'</span>);
+$(<span class="hljs-string">'#cat_additem .itype label'</span>).addClass(<span class="hljs-string">'required'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="add-headings"></a><a href="#add-headings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add headings</h3>
+<p>Inserts headings before certain fields to help better organize fields on the page.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Headings</span>
+$(<span class="hljs-string">'#cat_additem span:contains("Withdrawn status")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4 class="cathead"&gt;Statuses&lt;/h4&gt;&lt;hr&gt;'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Permanent location")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Location&lt;/h4&gt;&lt;hr&gt;'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Date acquired")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Acquisition&lt;/h4&gt;&lt;hr&gt;'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Shelving location")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Classification&lt;/h4&gt;&lt;hr&gt;'</span>);
+$(<span class="hljs-string">'#cat_additem span:contains("Non-public note")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Notes&lt;/h4&gt;&lt;hr&gt;'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="rearrange-the-fields"></a><a href="#rearrange-the-fields" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Rearrange the fields</h3>
+<p>Move the unhidden fields under the appropriate headings/</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Move</span>
+$(<span class="hljs-string">'#cat_additem .ccode'</span>).insertAfter(<span class="hljs-string">'#cat_additem .shelfloc'</span>); <span class="hljs-comment">//ccode</span>
+$(<span class="hljs-string">'#cat_additem .public'</span>).insertAfter(<span class="hljs-string">'#cat_additem .nonpublic'</span>); <span class="hljs-comment">//notes</span>
+$(<span class="hljs-string">'#cat_additem .accessiondate'</span>).insertAfter(<span class="hljs-string">'#cat_additem .holdingbranch'</span>); <span class="hljs-comment">//date acquired</span>
+$(<span class="hljs-string">'#cat_additem .source'</span>).insertAfter(<span class="hljs-string">'#cat_additem .accessiondate'</span>); <span class="hljs-comment">//source</span>
+$(<span class="hljs-string">'#cat_additem .purchase'</span>).insertAfter(<span class="hljs-string">'#cat_additem .source'</span>); <span class="hljs-comment">//cost</span>
+$(<span class="hljs-string">'#cat_additem .replacement'</span>).insertAfter(<span class="hljs-string">'#cat_additem .purchase'</span>); <span class="hljs-comment">//cost</span>
+$(<span class="hljs-string">'#cat_additem .itype'</span>).insertAfter(<span class="hljs-string">'#cat_additem .copy'</span>); <span class="hljs-comment">//itemtype</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="the-helper-function"></a><a href="#the-helper-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The helper function</h3>
+<p>The helper function associates shelf locations with collection codes, then populates the collection code depending on the location selected. The helper also toggles the 'Serial Enumeration' field so it only shows if a location in the 'Magazine' array is selected.</p>
+<pre><code class="hljs css language-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">catHelper</span>(<span class="hljs-params">val</span>) </span>{
+    <span class="hljs-keyword">var</span> adultbook = [<span class="hljs-string">'100100ADFICCF'</span>, <span class="hljs-string">'100200ADFIC'</span>, <span class="hljs-string">'100250ADFICGN'</span>, <span class="hljs-string">'100300ADFICHF'</span>, <span class="hljs-string">'100400ADFICM'</span>, <span class="hljs-string">'100450ADFICHOL'</span>, <span class="hljs-string">'100500ADFICPBK'</span>, <span class="hljs-string">'100600ADFICPBKM'</span>, <span class="hljs-string">'100700ADFICPBKSF'</span>, <span class="hljs-string">'100800ADFICPBKW'</span>, <span class="hljs-string">'100850ADFICR'</span>, <span class="hljs-string">'100900ADFICSF'</span>, <span class="hljs-string">'101000ADFICW'</span>, <span class="hljs-string">'101100KFIC'</span>, <span class="hljs-string">'101200LPFICCF'</span>, <span class="hljs-string">'101300LPFIC'</span>, <span class="hljs-string">'101400LPFICM'</span>, <span class="hljs-string">'101500LPFICSF'</span>, <span class="hljs-string">'101600LPFICW'</span>, <span class="hljs-string">'101700ADFICILL'</span>, <span class="hljs-string">'101800YAFIC'</span>, <span class="hljs-string">'101900YAFICGN'</span>, <span class="hljs-string">'102000YAFICPBKF'</span>, <span class="hljs-string">'102100YAFICSF'</span>, <span class="hljs-string">'120100ADNFB'</span>, <span class="hljs-string">'120200ADNF'</span>, <span class="hljs-string">'120300ADNFREF'</span>, <span class="hljs-string">'120400ADNFTC'</span>, <span class="hljs-string">'120450AUTO'</span>, <span class="hljs-string">'120600KDNF'</span>, <span class="hljs-string">'120700KNF'</span>, <span class="hljs-string">'120800KRNF'</span>, <span class="hljs-string">'120900LPNFB'</span>, <span class="hljs-string">'121000LPNF'</span>, <span class="hljs-string">'121200ADNFQ'</span>, <span class="hljs-string">'121300ADNFPC'</span>, <span class="hljs-string">'121400ADNFILL'</span>, <span class="hljs-string">'121600YANFB'</span>, <span class="hljs-string">'121700YANF'</span>, <span class="hljs-string">'121800YAREF'</span>, <span class="hljs-string">'130300SRAREA'</span>, <span class="hljs-string">'130400ADSPANISH'</span>, <span class="hljs-string">'340225KSHC'</span>]
+    <span class="hljs-keyword">var</span> audiobook = [<span class="hljs-string">'260100ADAUDCAS'</span>, <span class="hljs-string">'260200ADAUDCD'</span>, <span class="hljs-string">'260250ADAUDMP3'</span>, <span class="hljs-string">'260300ADAUDPL'</span>, <span class="hljs-string">'260430ADAUDCDPC'</span>, <span class="hljs-string">'260460ADAUDCDILL'</span>, <span class="hljs-string">'260500YAAUDCAS'</span>, <span class="hljs-string">'260600YAAUDCD'</span>, <span class="hljs-string">'260700YAAUDPL'</span>, <span class="hljs-string">'280100JUVAUDBAC'</span>, <span class="hljs-string">'280200JUVAUDCAS'</span>, <span class="hljs-string">'280300JUVAUDCD'</span>, <span class="hljs-string">'280400JUVAUDPL'</span>]
+    <span class="hljs-keyword">var</span> bluray = [<span class="hljs-string">'220100ADVIDBLU'</span>, <span class="hljs-string">'240100JUVVIDBLU'</span>]
+    <span class="hljs-keyword">var</span> device = [<span class="hljs-string">'240300JUVVIDPL'</span>, <span class="hljs-string">'320400EREADER'</span>, <span class="hljs-string">'320440ADLPAD'</span>, <span class="hljs-string">'320450JUVLPAD'</span>]
+    <span class="hljs-keyword">var</span> dvd = [<span class="hljs-string">'220200ADVIDDVD'</span>, <span class="hljs-string">'220500ADVIDDVDPC'</span>, <span class="hljs-string">'220600ADVIDDVDILL'</span>, <span class="hljs-string">'240200JUVVIDDVD'</span>]
+    <span class="hljs-keyword">var</span> game = [<span class="hljs-string">'300150SOFPS'</span>, <span class="hljs-string">'300200SOFPS2'</span>, <span class="hljs-string">'300300SOFPS3'</span>, <span class="hljs-string">'300310SOFPS4'</span>, <span class="hljs-string">'300370SOF3DS'</span>, <span class="hljs-string">'300380SOFSWITCH'</span>, <span class="hljs-string">'300400SOFWII'</span>, <span class="hljs-string">'300410SOFWIIU'</span>, <span class="hljs-string">'300500SOFXBOX360'</span>, <span class="hljs-string">'300500SOFXBOXONE'</span>, <span class="hljs-string">'320250BGAMEPUZ'</span>]
+    <span class="hljs-keyword">var</span> juvbook = [<span class="hljs-string">'130450JUVSPANISH'</span>, <span class="hljs-string">'140100JUVFICBR'</span>, <span class="hljs-string">'140200JUVFICBB'</span>, <span class="hljs-string">'140300JUVFICBRA'</span>, <span class="hljs-string">'140325JUVFICBC'</span>, <span class="hljs-string">'140350JUVFICCHI'</span>, <span class="hljs-string">'140400JUVFICE'</span>, <span class="hljs-string">'140450JUVFICP'</span>, <span class="hljs-string">'140500JUVFIC'</span>, <span class="hljs-string">'140600JUVFICGN'</span>, <span class="hljs-string">'140700JUVFICHOL'</span>, <span class="hljs-string">'140800JUVFICLP'</span>, <span class="hljs-string">'140950JUVFICILL'</span>, <span class="hljs-string">'160100JUVNFB'</span>, <span class="hljs-string">'160150JUVNFBRA'</span>, <span class="hljs-string">'160175JUVNFHOL'</span>, <span class="hljs-string">'160200JUVNF'</span>, <span class="hljs-string">'160300JUVNFREF'</span>, <span class="hljs-string">'160400JUVNFILL'</span>, <span class="hljs-string">'170100ERYBODY'</span>]
+    <span class="hljs-keyword">var</span> microform = [<span class="hljs-string">'320700MICROFILM'</span>]
+    <span class="hljs-keyword">var</span> music = [<span class="hljs-string">'260400ADAUDMUS'</span>, <span class="hljs-string">'280500JUVAUDMUS'</span>]
+    <span class="hljs-keyword">var</span> periodical = [<span class="hljs-string">'180100ADMAG'</span>, <span class="hljs-string">'200100JUVMAG'</span>, <span class="hljs-string">'180200YAMAG'</span>]
+    <span class="hljs-keyword">var</span> rota = [<span class="hljs-string">'340200ROTA'</span>]
+    <span class="hljs-keyword">var</span> software = [<span class="hljs-string">'300050SOFCOMPPC'</span>, <span class="hljs-string">'300100SOFCOMP'</span>]
+    <span class="hljs-keyword">var</span> specialCollections = [<span class="hljs-string">'121500ADNFVF'</span>, <span class="hljs-string">'130100ECH'</span>, <span class="hljs-string">'130250NBC'</span>, <span class="hljs-string">'130500WMINGE'</span>, <span class="hljs-string">'140900JUVFICPAT'</span>, <span class="hljs-string">'320100ARTPRINT'</span>, <span class="hljs-string">'320200BAKING'</span>, <span class="hljs-string">'320300EQUIPMENT'</span>, <span class="hljs-string">'320500KITS'</span>, <span class="hljs-string">'320700PASS'</span>, <span class="hljs-string">'320800PHOTO'</span>, <span class="hljs-string">'320950PCKIT'</span>, <span class="hljs-string">'340205ARCHIVE'</span>, <span class="hljs-string">'340300SPECNEED'</span>]
+    <span class="hljs-keyword">var</span> stats = [<span class="hljs-string">'380100COMPUSE'</span>]
+    <span class="hljs-keyword">var</span> vhs = [<span class="hljs-string">'220400ADVIDVHS'</span>, <span class="hljs-string">'240400JUVVIDVHS'</span>]
+
+    <span class="hljs-comment">//Adult Books</span>
+    <span class="hljs-keyword">if</span> ($.inArray(val, adultbook) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'AB'</span>).change();
+
+    <span class="hljs-comment">//Audiobooks</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, audiobook) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'AUD'</span>).change();
+
+    <span class="hljs-comment">//Blu-rays</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, bluray) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'BLU'</span>).change();
+
+    <span class="hljs-comment">//Devices</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, device) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'DEV'</span>).change();
+
+    <span class="hljs-comment">//DVDs</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, dvd) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'DVD'</span>).change();
+
+    <span class="hljs-comment">//Games</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, game) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'GAM'</span>).change();
+
+    <span class="hljs-comment">//Juvenile Books</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, juvbook) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'JB'</span>).change();
+
+    <span class="hljs-comment">//Microform</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, microform) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'MIC'</span>).change();
+
+    <span class="hljs-comment">//Music</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, music) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'MUS'</span>).change();
+
+    <span class="hljs-comment">//Periodicals</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, periodical) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().show(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'PER'</span>).change();
+
+    <span class="hljs-comment">//Rotation</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, rota) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'ROT'</span>).change();
+
+    <span class="hljs-comment">//Software</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, software) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'SOF'</span>).change();
+
+    <span class="hljs-comment">//Special Collections</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, specialCollections) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'SPC'</span>).change();
+
+    <span class="hljs-comment">//Stats</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, stats) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'STT'</span>).change();
+
+    <span class="hljs-comment">//VHS</span>
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, vhs) !== <span class="hljs-number">-1</span>) {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+        $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'VHS'</span>).change();
+
+    <span class="hljs-comment">//Everything Else</span>
+    } <span class="hljs-keyword">else</span> {
+        $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+    }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="call-the-helper-function"></a><a href="#call-the-helper-function" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Call the helper function</h3>
+<p>Whenever a shelf location is chosen, the function triggers and chooses the appropriate collection code.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Change ccode based on shelfloc</span>
+$(<span class="hljs-string">"[id*='tag_952_subfield_c_']"</span>).on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> selected = $(<span class="hljs-keyword">this</span>).val();
+    catHelper(selected);
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="show-the-serial-enumeration-field-when-duping-an-item"></a><a href="#show-the-serial-enumeration-field-when-duping-an-item" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Show the 'Serial Enumeration' field when duping an item</h3>
+<p>Clunky workaround to show the 'Serial Enumeration' field when duplicating an existing item.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Serial enumeration</span>
+<span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.location.href.indexOf(<span class="hljs-string">"dupeitem"</span>) === <span class="hljs-number">-1</span>) { <span class="hljs-comment">//show field if dupe button is used</span>
+    $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration / chronology")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'serial'</span>).hide(); 
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="css"></a><a href="#css" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS</h2>
+<h3><a class="anchor" aria-hidden="true" id="format-the-fake-required-notation"></a><a href="#format-the-fake-required-notation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Format the fake 'required' notation</h3>
+<p>Colors the text red and adds an asterisk.</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">label</span><span class="hljs-selector-class">.required</span><span class="hljs-selector-pseudo">:after</span> {
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">" *"</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="align-text-labels-to-the-right"></a><a href="#align-text-labels-to-the-right" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Align text labels to the right</h3>
+<p>This makes it easier to see which field goes with which label.</p>
+<pre><code class="hljs css language-css"><span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">label</span>, <span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.label</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">25%</span>;
+    <span class="hljs-attribute">text-align</span>: right <span class="hljs-meta">!important</span>;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-code"></a><a href="#complete-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Code:</h2>
+<h3><a class="anchor" aria-hidden="true" id="intranetuserjs"></a><a href="#intranetuserjs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserJS</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Item Cataloging Helper</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-comment">//Classes</span>
+    $(<span class="hljs-string">'#cat_additem span:contains("Withdrawn status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'withdrawn'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Lost status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'lost'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Not for loan")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'notloan'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Permanent location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'homebranch'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Current location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'holdingbranch'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Shelving location")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'shelfloc'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Collection code")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'ccode'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Full call number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'callnumber'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Barcode")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'bcode'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Copy number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'copy'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Koha item type")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'itype'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Date acquired")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'accessiondate'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Source of acquisition")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'source'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Cost, normal purchase price")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'purchase'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Cost, replacement price")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'replacement'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Non-public note")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'nonpublic'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Public note")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'public'</span>);
+
+    <span class="hljs-comment">//Serial enumeration</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.location.href.indexOf(<span class="hljs-string">"dupeitem"</span>) === <span class="hljs-number">-1</span>) { <span class="hljs-comment">//show field if dupe button is used</span>
+    $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration / chronology")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'serial'</span>).hide(); 
+    }
+
+    <span class="hljs-comment">//Hide</span>
+    $(<span class="hljs-string">'#cat_additem span:contains("Source of classification or shelving scheme")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+    $(<span class="hljs-string">'#cat_additem span:contains("Materials specified (bound volume or other part)")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Damaged status")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+    $(<span class="hljs-string">'#cat_additem span:contains("Use restrictions")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+    $(<span class="hljs-string">'#cat_additem span:contains("Inventory number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Shelving control number")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>); 
+    $(<span class="hljs-string">'#cat_additem span:contains("Coded location qualifier")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Uniform Resource Identifier")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+    $(<span class="hljs-string">'#cat_additem span:contains("Price effective from")'</span>).parent().parent().parent().addClass(<span class="hljs-string">'hidden'</span>);
+
+    <span class="hljs-comment">//Required fields</span>
+    $(<span class="hljs-string">'#cat_additem .accessiondate label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .source label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .purchase label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .replacement label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .shelfloc label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .ccode label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .callnumber label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .bcode label'</span>).addClass(<span class="hljs-string">'required'</span>);
+    $(<span class="hljs-string">'#cat_additem .itype label'</span>).addClass(<span class="hljs-string">'required'</span>);
+
+    <span class="hljs-comment">//Headings</span>
+    <span class="hljs-keyword">if</span> ($(<span class="hljs-string">'#cat_additem #breadcrumbs:not(:contains("SHAREit"))'</span>).length) { <span class="hljs-comment">//Excludes headings from shareit item adds</span>
+        $(<span class="hljs-string">'#cat_additem span:contains("Withdrawn status")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4 class="cathead"&gt;Statuses&lt;/h4&gt;&lt;hr&gt;'</span>);
+        $(<span class="hljs-string">'#cat_additem span:contains("Permanent location")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Location&lt;/h4&gt;&lt;hr&gt;'</span>);
+        $(<span class="hljs-string">'#cat_additem span:contains("Date acquired")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Acquisition&lt;/h4&gt;&lt;hr&gt;'</span>);
+        $(<span class="hljs-string">'#cat_additem span:contains("Shelving location")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Classification&lt;/h4&gt;&lt;hr&gt;'</span>);
+        $(<span class="hljs-string">'#cat_additem span:contains("Non-public note")'</span>).parent().parent().parent().prepend(<span class="hljs-string">'&lt;h4&gt;Notes&lt;/h4&gt;&lt;hr&gt;'</span>);
+    }
+
+    <span class="hljs-comment">//Move</span>
+    $(<span class="hljs-string">'#cat_additem .ccode'</span>).insertAfter(<span class="hljs-string">'#cat_additem .shelfloc'</span>); <span class="hljs-comment">//ccode</span>
+    $(<span class="hljs-string">'#cat_additem .public'</span>).insertAfter(<span class="hljs-string">'#cat_additem .nonpublic'</span>); <span class="hljs-comment">//notes</span>
+    $(<span class="hljs-string">'#cat_additem .accessiondate'</span>).insertAfter(<span class="hljs-string">'#cat_additem .holdingbranch'</span>); <span class="hljs-comment">//date acquired</span>
+    $(<span class="hljs-string">'#cat_additem .source'</span>).insertAfter(<span class="hljs-string">'#cat_additem .accessiondate'</span>); <span class="hljs-comment">//source</span>
+    $(<span class="hljs-string">'#cat_additem .purchase'</span>).insertAfter(<span class="hljs-string">'#cat_additem .source'</span>); <span class="hljs-comment">//cost</span>
+    $(<span class="hljs-string">'#cat_additem .replacement'</span>).insertAfter(<span class="hljs-string">'#cat_additem .purchase'</span>); <span class="hljs-comment">//cost</span>
+    $(<span class="hljs-string">'#cat_additem .itype'</span>).insertAfter(<span class="hljs-string">'#cat_additem .copy'</span>); <span class="hljs-comment">//itemtype</span>
+
+  
+    <span class="hljs-comment">//Change ccode based on shelfloc</span>
+    $(<span class="hljs-string">"[id*='tag_952_subfield_c_']"</span>).on(<span class="hljs-string">'change'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> selected = $(<span class="hljs-keyword">this</span>).val();
+        catHelper(selected);
+    });
+
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">catHelper</span>(<span class="hljs-params">val</span>) </span>{
+        <span class="hljs-keyword">var</span> adultbook = [<span class="hljs-string">'100100ADFICCF'</span>, <span class="hljs-string">'100200ADFIC'</span>, <span class="hljs-string">'100250ADFICGN'</span>, <span class="hljs-string">'100300ADFICHF'</span>, <span class="hljs-string">'100400ADFICM'</span>, <span class="hljs-string">'100450ADFICHOL'</span>, <span class="hljs-string">'100500ADFICPBK'</span>, <span class="hljs-string">'100600ADFICPBKM'</span>, <span class="hljs-string">'100700ADFICPBKSF'</span>, <span class="hljs-string">'100800ADFICPBKW'</span>, <span class="hljs-string">'100850ADFICR'</span>, <span class="hljs-string">'100900ADFICSF'</span>, <span class="hljs-string">'101000ADFICW'</span>, <span class="hljs-string">'101100KFIC'</span>, <span class="hljs-string">'101200LPFICCF'</span>, <span class="hljs-string">'101300LPFIC'</span>, <span class="hljs-string">'101400LPFICM'</span>, <span class="hljs-string">'101500LPFICSF'</span>, <span class="hljs-string">'101600LPFICW'</span>, <span class="hljs-string">'101700ADFICILL'</span>, <span class="hljs-string">'101800YAFIC'</span>, <span class="hljs-string">'101900YAFICGN'</span>, <span class="hljs-string">'102000YAFICPBKF'</span>, <span class="hljs-string">'102100YAFICSF'</span>, <span class="hljs-string">'120100ADNFB'</span>, <span class="hljs-string">'120200ADNF'</span>, <span class="hljs-string">'120300ADNFREF'</span>, <span class="hljs-string">'120400ADNFTC'</span>, <span class="hljs-string">'120450AUTO'</span>, <span class="hljs-string">'120600KDNF'</span>, <span class="hljs-string">'120700KNF'</span>, <span class="hljs-string">'120800KRNF'</span>, <span class="hljs-string">'120900LPNFB'</span>, <span class="hljs-string">'121000LPNF'</span>, <span class="hljs-string">'121200ADNFQ'</span>, <span class="hljs-string">'121300ADNFPC'</span>, <span class="hljs-string">'121400ADNFILL'</span>, <span class="hljs-string">'121600YANFB'</span>, <span class="hljs-string">'121700YANF'</span>, <span class="hljs-string">'121800YAREF'</span>, <span class="hljs-string">'130300SRAREA'</span>, <span class="hljs-string">'130400ADSPANISH'</span>, <span class="hljs-string">'340225KSHC'</span>]
+        <span class="hljs-keyword">var</span> audiobook = [<span class="hljs-string">'260100ADAUDCAS'</span>, <span class="hljs-string">'260200ADAUDCD'</span>, <span class="hljs-string">'260250ADAUDMP3'</span>, <span class="hljs-string">'260300ADAUDPL'</span>, <span class="hljs-string">'260430ADAUDCDPC'</span>, <span class="hljs-string">'260460ADAUDCDILL'</span>, <span class="hljs-string">'260500YAAUDCAS'</span>, <span class="hljs-string">'260600YAAUDCD'</span>, <span class="hljs-string">'260700YAAUDPL'</span>, <span class="hljs-string">'280100JUVAUDBAC'</span>, <span class="hljs-string">'280200JUVAUDCAS'</span>, <span class="hljs-string">'280300JUVAUDCD'</span>, <span class="hljs-string">'280400JUVAUDPL'</span>]
+        <span class="hljs-keyword">var</span> bluray = [<span class="hljs-string">'220100ADVIDBLU'</span>, <span class="hljs-string">'240100JUVVIDBLU'</span>]
+        <span class="hljs-keyword">var</span> device = [<span class="hljs-string">'240300JUVVIDPL'</span>, <span class="hljs-string">'320400EREADER'</span>, <span class="hljs-string">'320440ADLPAD'</span>, <span class="hljs-string">'320450JUVLPAD'</span>]
+        <span class="hljs-keyword">var</span> dvd = [<span class="hljs-string">'220200ADVIDDVD'</span>, <span class="hljs-string">'220500ADVIDDVDPC'</span>, <span class="hljs-string">'220600ADVIDDVDILL'</span>, <span class="hljs-string">'240200JUVVIDDVD'</span>]
+        <span class="hljs-keyword">var</span> game = [<span class="hljs-string">'300150SOFPS'</span>, <span class="hljs-string">'300200SOFPS2'</span>, <span class="hljs-string">'300300SOFPS3'</span>, <span class="hljs-string">'300310SOFPS4'</span>, <span class="hljs-string">'300370SOF3DS'</span>, <span class="hljs-string">'300380SOFSWITCH'</span>, <span class="hljs-string">'300400SOFWII'</span>, <span class="hljs-string">'300410SOFWIIU'</span>, <span class="hljs-string">'300500SOFXBOX360'</span>, <span class="hljs-string">'300500SOFXBOXONE'</span>, <span class="hljs-string">'320250BGAMEPUZ'</span>]
+        <span class="hljs-keyword">var</span> juvbook = [<span class="hljs-string">'130450JUVSPANISH'</span>, <span class="hljs-string">'140100JUVFICBR'</span>, <span class="hljs-string">'140200JUVFICBB'</span>, <span class="hljs-string">'140300JUVFICBRA'</span>, <span class="hljs-string">'140325JUVFICBC'</span>, <span class="hljs-string">'140350JUVFICCHI'</span>, <span class="hljs-string">'140400JUVFICE'</span>, <span class="hljs-string">'140450JUVFICP'</span>, <span class="hljs-string">'140500JUVFIC'</span>, <span class="hljs-string">'140600JUVFICGN'</span>, <span class="hljs-string">'140700JUVFICHOL'</span>, <span class="hljs-string">'140800JUVFICLP'</span>, <span class="hljs-string">'140950JUVFICILL'</span>, <span class="hljs-string">'160100JUVNFB'</span>, <span class="hljs-string">'160150JUVNFBRA'</span>, <span class="hljs-string">'160175JUVNFHOL'</span>, <span class="hljs-string">'160200JUVNF'</span>, <span class="hljs-string">'160300JUVNFREF'</span>, <span class="hljs-string">'160400JUVNFILL'</span>, <span class="hljs-string">'170100ERYBODY'</span>]
+        <span class="hljs-keyword">var</span> microform = [<span class="hljs-string">'320700MICROFILM'</span>]
+        <span class="hljs-keyword">var</span> music = [<span class="hljs-string">'260400ADAUDMUS'</span>, <span class="hljs-string">'280500JUVAUDMUS'</span>]
+        <span class="hljs-keyword">var</span> periodical = [<span class="hljs-string">'180100ADMAG'</span>, <span class="hljs-string">'200100JUVMAG'</span>, <span class="hljs-string">'180200YAMAG'</span>]
+        <span class="hljs-keyword">var</span> rota = [<span class="hljs-string">'340200ROTA'</span>]
+        <span class="hljs-keyword">var</span> software = [<span class="hljs-string">'300050SOFCOMPPC'</span>, <span class="hljs-string">'300100SOFCOMP'</span>]
+        <span class="hljs-keyword">var</span> specialCollections = [<span class="hljs-string">'121500ADNFVF'</span>, <span class="hljs-string">'130100ECH'</span>, <span class="hljs-string">'130250NBC'</span>, <span class="hljs-string">'130500WMINGE'</span>, <span class="hljs-string">'140900JUVFICPAT'</span>, <span class="hljs-string">'320100ARTPRINT'</span>, <span class="hljs-string">'320200BAKING'</span>, <span class="hljs-string">'320300EQUIPMENT'</span>, <span class="hljs-string">'320500KITS'</span>, <span class="hljs-string">'320700PASS'</span>, <span class="hljs-string">'320800PHOTO'</span>, <span class="hljs-string">'320950PCKIT'</span>, <span class="hljs-string">'340205ARCHIVE'</span>, <span class="hljs-string">'340300SPECNEED'</span>]
+        <span class="hljs-keyword">var</span> stats = [<span class="hljs-string">'380100COMPUSE'</span>]
+        <span class="hljs-keyword">var</span> vhs = [<span class="hljs-string">'220400ADVIDVHS'</span>, <span class="hljs-string">'240400JUVVIDVHS'</span>]
+
+        <span class="hljs-comment">//Adult Books</span>
+        <span class="hljs-keyword">if</span> ($.inArray(val, adultbook) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'AB'</span>).change();
+
+        <span class="hljs-comment">//Audiobooks</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, audiobook) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'AUD'</span>).change();
+
+        <span class="hljs-comment">//Blu-rays</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, bluray) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'BLU'</span>).change();
+
+        <span class="hljs-comment">//Devices</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, device) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'DEV'</span>).change();
+
+        <span class="hljs-comment">//DVDs</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, dvd) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'DVD'</span>).change();
+
+        <span class="hljs-comment">//Games</span>
+       } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, game) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'GAM'</span>).change();
+
+        <span class="hljs-comment">//Juvenile Books</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, juvbook) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'JB'</span>).change();
+
+        <span class="hljs-comment">//Microform</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, microform) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'MIC'</span>).change();
+
+        <span class="hljs-comment">//Music</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, music) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'MUS'</span>).change();
+
+        <span class="hljs-comment">//Periodicals</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, periodical) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().show(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'PER'</span>).change();
+
+        <span class="hljs-comment">//Rotation</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, rota) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'ROT'</span>).change();
+
+        <span class="hljs-comment">//Software</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, software) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'SOF'</span>).change();
+
+        <span class="hljs-comment">//Special Collections</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, specialCollections) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'SPC'</span>).change();
+
+        <span class="hljs-comment">//Stats</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, stats) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'STT'</span>).change();
+
+        <span class="hljs-comment">//VHS</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ($.inArray(val, vhs) !== <span class="hljs-number">-1</span>) {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+            $(<span class="hljs-string">'[id*="tag_952_subfield_8_"]'</span>).val(<span class="hljs-string">'VHS'</span>).change();
+
+        <span class="hljs-comment">//Everything Else</span>
+        } <span class="hljs-keyword">else</span> {
+            $(<span class="hljs-string">'#cat_additem span:contains("Serial Enumeration")'</span>).parent().parent().parent().hide(<span class="hljs-number">500</span>);
+
+        }
+    }
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="intranetusercss"></a><a href="#intranetusercss" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserCSS</h3>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/*Add fake '*required' markers*/</span>
+<span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">label</span><span class="hljs-selector-class">.required</span><span class="hljs-selector-pseudo">:after</span> {
+    <span class="hljs-attribute">color</span>: red;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">" *"</span>;
+}
+
+<span class="hljs-comment">/*Right-align field labels*/</span>
+<span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">label</span>, <span class="hljs-selector-id">#cataloguing_additem_newitem</span> <span class="hljs-selector-tag">fieldset</span><span class="hljs-selector-class">.rows</span> <span class="hljs-selector-tag">span</span><span class="hljs-selector-class">.label</span> {
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">25%</span>;
+    <span class="hljs-attribute">text-align</span>: right <span class="hljs-meta">!important</span>;
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/SEKnFindStaffDocs/docs/customization"><span class="arrow-prev">← </span><span>Customizing Koha</span></a><a class="docs-next button" href="/SEKnFindStaffDocs/docs/projects/illitypedefaults"><span>ILL Item Type Defaults</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#sorted-fields">Sorted Fields</a></li><li><a href="#helper-in-action">Helper in Action</a></li><li><a href="#js">JS</a><ul class="toc-headings"><li><a href="#add-classes">Add classes</a></li><li><a href="#add-headings">Add headings</a></li><li><a href="#rearrange-the-fields">Rearrange the fields</a></li><li><a href="#the-helper-function">The helper function</a></li><li><a href="#call-the-helper-function">Call the helper function</a></li><li><a href="#show-the-serial-enumeration-field-when-duping-an-item">Show the 'Serial Enumeration' field when duping an item</a></li></ul></li><li><a href="#css">CSS</a><ul class="toc-headings"><li><a href="#format-the-fake-required-notation">Format the fake 'required' notation</a></li><li><a href="#align-text-labels-to-the-right">Align text labels to the right</a></li></ul></li><li><a href="#complete-code">Complete Code:</a><ul class="toc-headings"><li><a href="#intranetuserjs">IntranetUserJS</a></li><li><a href="#intranetusercss">IntranetUserCSS</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/SEKnFindStaffDocs/" class="nav-home"><img src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources" width="66" height="58"/></a><div><h5>Resources</h5><a href="/SEKnFindStaffDocs/docs/documentation">Documentation</a><a href="/SEKnFindStaffDocs/docs/usergrouparchives">User Group Archives</a><a href="/SEKnFindStaffDocs/docs/customization">Customization</a></div><div><h5>Koha</h5><a href="https://staff.seknfind.org" target="_blank">Staff login</a><a href="https://www.seknfind.org" target="_blank">OPAC</a></div><div><h5>More</h5><a href="https://sekls.org/" target="_blank">SEKLS</a><a href="http://www.libraryaware.com/login" target="_blank">LibraryAware Login</a><a href="https://www.libraryaware.com/1652/Subscribers/Subscribe" target="_blank">Newsletter Subscribe</a></div></section><section class="copyright">Copyright © 2019 Southeast Kansas Library System</section></footer></div></body></html>

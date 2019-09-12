@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>New Item Sharing Modifications · SEKnFind Staff Resources</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;Customizations on this page relate to our &#x27;New Item Sharing&#x27; setup, which allows libraries to select from two &#x27;New Item Sharing&#x27; models:&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="New Item Sharing Modifications · SEKnFind Staff Resources"/><meta property="og:type" content="website"/><meta property="og:url" content="https://jsonks.github.io/SEKnFindStaffDocs/"/><meta property="og:description" content="&lt;p&gt;Customizations on this page relate to our &#x27;New Item Sharing&#x27; setup, which allows libraries to select from two &#x27;New Item Sharing&#x27; models:&lt;/p&gt;
+"/><meta property="og:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/SEKnFindStaffDocs/img/seknfind.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/SEKnFindStaffDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/SEKnFindStaffDocs/css/main.css"/><script src="/SEKnFindStaffDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/SEKnFindStaffDocs/"><img class="logo" src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources"/><h2 class="headerTitleWithLogo">SEKnFind Staff Resources</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/SEKnFindStaffDocs/docs/documentation" target="_self">Documentation</a></li><li class=""><a href="/SEKnFindStaffDocs/docs/usergrouparchives" target="_self">User Group Archives</a></li><li class="siteNavGroupActive"><a href="/SEKnFindStaffDocs/docs/customization" target="_self">Customization</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>JS + CSS Projects</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Koha Administration Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/customization">Customizing Koha</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">JS + CSS Projects</h4><ul><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/additemhelper">Item Cataloging Helper</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/illitypedefaults">ILL Item Type Defaults</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/itypelimit">Item Type Limit Warning</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/megamenu">Megamenu</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/nachoitemmodal">Nacho Item Modal</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/newitemsharing">New Item Sharing</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/patronautofilltoggle">Patron Autofill Toggle</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SQL</h4><ul><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sqltips">SQL Tips</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sharedsql">Shared SQL</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">New Item Sharing Modifications</h1></header><article><div><span><p>Customizations on this page relate to our 'New Item Sharing' setup, which allows libraries to select from two 'New Item Sharing' models:</p>
+<ul>
+<li>Immediate (Sharks):  These libraries freely share new items as soon as possible, and are able to place holds on new items as soon as they are cataloged</li>
+<li>Delayed (Fish): These libraries withhold their new items for 6 weeks, and are not allowed to place holds on new items until they hit the 6-week mark</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="tooltips"></a><a href="#tooltips" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tooltips</h2>
+<p>Adds tooltips to the catalog detail pages to indicate when sharing of an item will be delayed.</p>
+<h3><a class="anchor" aria-hidden="true" id="staff"></a><a href="#staff" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Staff</h3>
+<p><img src="/SEKnFindStaffDocs/docs/assets/newitemsharing1.png" alt="newitemsharing"></p>
+<h4><a class="anchor" aria-hidden="true" id="js"></a><a href="#js" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS</h4>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Add tooltip to new items belonging to delayed sharers</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">'td.homebranch:contains(Arma), td.homebranch:contains(Bronson), td.homebranch:contains(Colony), td.homebranch:contains(Columbus), td.homebranch:contains(Oswego), td.homebranch:contains(Pleasanton)'</span>).siblings(<span class="hljs-string">'td.itype:contains(New)'</span>).prepend(<span class="hljs-string">"&lt;div class='fishtip'&gt;!&lt;span class='fishtiptext'&gt;This library keeps new items for 6 weeks. Holds may be delayed.&lt;/span&gt;&lt;/div&gt;"</span>);
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="css"></a><a href="#css" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS</h4>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/*---New Item Sharing---*/</span>
+
+<span class="hljs-selector-class">.fishtip</span> {
+    <span class="hljs-attribute">background-color</span>: darkturquoise;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">20px</span>;
+    <span class="hljs-attribute">color</span>: white;
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">font-family</span>: caption;
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">17px</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">1%</span>;
+    <span class="hljs-attribute">padding-top</span>: <span class="hljs-number">1px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">18px</span>;
+}
+
+<span class="hljs-selector-class">.fishtip</span> <span class="hljs-selector-class">.fishtiptext</span><span class="hljs-selector-pseudo">::after</span> {
+    <span class="hljs-attribute">border-color</span>: gray transparent transparent;
+    <span class="hljs-attribute">border-style</span>: solid;
+    <span class="hljs-attribute">border-width</span>: <span class="hljs-number">5px</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">35px</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.fishtip</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.fishtiptext</span> {
+    <span class="hljs-attribute">visibility</span>: visible;
+}
+
+<span class="hljs-selector-class">.fishtip</span> <span class="hljs-selector-class">.fishtiptext</span> {
+    <span class="hljs-attribute">background-color</span>: grey;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">130%</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">font-family</span>: arial;
+    <span class="hljs-attribute">font-size</span>: small;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">35px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">visibility</span>: hidden;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">120px</span>;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+}
+
+<span class="hljs-selector-class">.select2-results</span> <span class="hljs-selector-class">.select2-disabled</span> {
+    <span class="hljs-attribute">display</span>: none <span class="hljs-meta">!important</span>;
+}
+
+<span class="hljs-selector-class">.new-itype-highlight</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#b1edb1</span> <span class="hljs-meta">!important</span>;
+}
+
+<span class="hljs-selector-class">.new-itype-highlight</span><span class="hljs-selector-pseudo">:hover</span> {
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#3875D7</span><span class="hljs-meta">!important</span>;
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="opac"></a><a href="#opac" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OPAC</h3>
+<p><img src="/SEKnFindStaffDocs/docs/assets/newitemsharing2.png" alt="newitemsharing"></p>
+<h4><a class="anchor" aria-hidden="true" id="js-1"></a><a href="#js-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS</h4>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//----OPAC New Sharing Tooltip----//</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  $(<span class="hljs-string">'td.location:contains(Arma), td.location:contains(Bronson), td.location:contains(Columbus), td.location:contains(Oswego), td.location:contains(Pleasanton)'</span>).siblings(<span class="hljs-string">'td.itype:contains(New)'</span>).prepend(<span class="hljs-string">"&lt;div class='fishtip'&gt;!&lt;span class='fishtiptext'&gt;This library keeps new items for 6 weeks. Holds may be delayed.&lt;/span&gt;&lt;/div&gt;"</span>);
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="css-1"></a><a href="#css-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS</h4>
+<pre><code class="hljs css language-css"><span class="hljs-comment">/*--OPAC--*/</span>
+
+<span class="hljs-selector-class">.fishtip</span> {
+    <span class="hljs-attribute">background-color</span>: darkturquoise;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">25px</span>;
+    <span class="hljs-attribute">color</span>: white;
+    <span class="hljs-attribute">cursor</span>: pointer;
+    <span class="hljs-attribute">display</span>: inline-block;
+    <span class="hljs-attribute">font-family</span>: caption;
+    <span class="hljs-attribute">font-size</span>: large;
+    <span class="hljs-attribute">font-weight</span>: bold;
+    <span class="hljs-attribute">height</span>: <span class="hljs-number">19px</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">4%</span>;
+    <span class="hljs-attribute">padding-bottom</span>: <span class="hljs-number">8px</span>;
+    <span class="hljs-attribute">position</span>: relative;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">25px</span>;
+}
+
+<span class="hljs-selector-class">.fishtip</span> <span class="hljs-selector-class">.fishtiptext</span><span class="hljs-selector-pseudo">::after</span> {
+    <span class="hljs-attribute">border-color</span>: gray transparent transparent;
+    <span class="hljs-attribute">border-style</span>: solid;
+    <span class="hljs-attribute">border-width</span>: <span class="hljs-number">5px</span>;
+    <span class="hljs-attribute">content</span>: <span class="hljs-string">" "</span>;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">35px</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">top</span>: <span class="hljs-number">100%</span>;
+}
+
+<span class="hljs-selector-class">.fishtip</span><span class="hljs-selector-pseudo">:hover</span> <span class="hljs-selector-class">.fishtiptext</span> {
+    <span class="hljs-attribute">visibility</span>: visible;
+}
+
+<span class="hljs-selector-class">.fishtip</span> <span class="hljs-selector-class">.fishtiptext</span> {
+    <span class="hljs-attribute">background-color</span>: grey;
+    <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">6px</span>;
+    <span class="hljs-attribute">bottom</span>: <span class="hljs-number">130%</span>;
+    <span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
+    <span class="hljs-attribute">font-family</span>: arial;
+    <span class="hljs-attribute">font-size</span>: small;
+    <span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+    <span class="hljs-attribute">margin-left</span>: -<span class="hljs-number">35px</span>;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">5px</span>;
+    <span class="hljs-attribute">position</span>: absolute;
+    <span class="hljs-attribute">text-align</span>: center;
+    <span class="hljs-attribute">visibility</span>: hidden;
+    <span class="hljs-attribute">width</span>: <span class="hljs-number">120px</span>;
+    <span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="opac-policy-alert"></a><a href="#opac-policy-alert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>OPAC Policy Alert</h2>
+<p>Inform patrons that they cannot place a hold because their library doesn't share new items.</p>
+<p><img src="/SEKnFindStaffDocs/docs/assets/newitemsharing3.png" alt="newitemsharing"></p>
+<h4><a class="anchor" aria-hidden="true" id="js-2"></a><a href="#js-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS</h4>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//----OPAC NoShare Alert----//</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+var0 = $(<span class="hljs-string">'body'</span>).is(<span class="hljs-string">"#opac-holds.branch-ARMA"</span>) || $(<span class="hljs-string">'body'</span>).is(<span class="hljs-string">"#opac-holds.branch-BRONSON"</span>) || $(<span class="hljs-string">'body'</span>).is(<span class="hljs-string">"#opac-holds.branch-COLUMBUS"</span>) || $(<span class="hljs-string">'body'</span>).is(<span class="hljs-string">"#opac-holds.branch-OSWEGO"</span>) || $(<span class="hljs-string">'body'</span>).is(<span class="hljs-string">"#opac-holds.branch-PLEASANTON"</span>);
+<span class="hljs-keyword">if</span>(var0 !=<span class="hljs-number">0</span>) {
+   $(<span class="hljs-string">".alert:contains('There are no items that can be placed on hold.')"</span>).after(<span class="hljs-string">"&lt;div id='newsharepolicy' class='alert'&gt;&lt;p&gt;&lt;b&gt;New Item Sharing Policy:&lt;/b&gt;&lt;ul&gt;&lt;li&gt;If your library does not share new items, you cannot place holds on new items.&lt;/li&gt;&lt;li&gt;Items lose their 'New' status 6 weeks after they are added to SEKnFind.&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;&lt;p&gt;&lt;em&gt;If you feel you have received this message in error, please contact your library for assistance.&lt;/em&gt;&lt;/p&gt;&lt;/div&gt;"</span>);
+}
+});
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="css-2"></a><a href="#css-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS</h4>
+<pre><code class="hljs css language-css"><span class="hljs-selector-id">#newsharepolicy</span> {
+    <span class="hljs-attribute">background</span>: <span class="hljs-built_in">rgba</span>(0, 0, 0, 0) <span class="hljs-built_in">linear-gradient</span>(to bottom, #f3ffdb 0px, #daff8f 9%, #e2ffa8 89%, #c9ff5c 100%) repeat scroll <span class="hljs-number">0</span> <span class="hljs-number">0</span>;
+    <span class="hljs-attribute">border-color</span>: <span class="hljs-number">#ccffa8</span>;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="holds-queue-modifications"></a><a href="#holds-queue-modifications" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Holds Queue Modifications</h2>
+<p>Hides requests made by delayed sharers on other libraries' queues and recalculates the hold count.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Filter out 'New' item requests on the holds queue based on shark/fish</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">var</span> libcode = $(<span class="hljs-string">'#logged-in-info-full .logged-in-branch-code'</span>).text();
+
+  <span class="hljs-comment">//Hide New Items from Fish</span>
+  $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Oswego'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Arma patrons at Arma</span>
+  <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"ARMA"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Oswego'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Bronson patrons at Bronson</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"BRONSON"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Bronson')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Oswego'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Colony patrons at Colony</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"COLONY"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Colony')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Oswego'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Columbus patrons at Columbus</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"COLUMBUS"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Columbus')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Oswego'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Oswego patrons at Oswego</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"OSWEGO"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Oswego')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Pleasanton')"</span>).parent().hide();
+  <span class="hljs-comment">//Only show new item holds for Pleasanton patrons at Pleasanton</span>
+  } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (libcode === <span class="hljs-string">"PLEASANTON"</span>) {
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Pleasanton')"</span>).parent().show();
+    $(<span class="hljs-string">"td.hq-itemtype:contains('New')"</span>).siblings(<span class="hljs-string">"td.hq-sendto:contains('Arma'), td.hq-sendto:contains('Bronson'), td.hq-sendto:contains('Colony'), td.hq-sendto:contains('Columbus'), td.hq-sendto:contains('Oswego')"</span>).parent().hide();
+  }
+});
+
+
+<span class="hljs-comment">//Fix visible row count when delayed sharer holds are hidden</span>
+$(<span class="hljs-built_in">window</span>).load(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+   <span class="hljs-keyword">var</span> numOfVisibleRows = $(<span class="hljs-string">'#holdst tr:visible'</span>).length<span class="hljs-number">-2</span>;
+   <span class="hljs-keyword">var</span> loggedInLib = $(<span class="hljs-string">'#logged-in-info-full .logged-in-branch-name'</span>).text();
+
+   $(<span class="hljs-string">"#circ_view_holdsqueue .results"</span>).text(numOfVisibleRows + <span class="hljs-string">' item(s) found.'</span>);
+});
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/SEKnFindStaffDocs/docs/projects/nachoitemmodal"><span class="arrow-prev">← </span><span>Nacho Item Modal</span></a><a class="docs-next button" href="/SEKnFindStaffDocs/docs/projects/patronautofilltoggle"><span>Patron Autofill Toggle</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#tooltips">Tooltips</a><ul class="toc-headings"><li><a href="#staff">Staff</a></li><li><a href="#opac">OPAC</a></li></ul></li><li><a href="#opac-policy-alert">OPAC Policy Alert</a></li><li><a href="#holds-queue-modifications">Holds Queue Modifications</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/SEKnFindStaffDocs/" class="nav-home"><img src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources" width="66" height="58"/></a><div><h5>Resources</h5><a href="/SEKnFindStaffDocs/docs/documentation">Documentation</a><a href="/SEKnFindStaffDocs/docs/usergrouparchives">User Group Archives</a><a href="/SEKnFindStaffDocs/docs/customization">Customization</a></div><div><h5>Koha</h5><a href="https://staff.seknfind.org" target="_blank">Staff login</a><a href="https://www.seknfind.org" target="_blank">OPAC</a></div><div><h5>More</h5><a href="https://sekls.org/" target="_blank">SEKLS</a><a href="http://www.libraryaware.com/login" target="_blank">LibraryAware Login</a><a href="https://www.libraryaware.com/1652/Subscribers/Subscribe" target="_blank">Newsletter Subscribe</a></div></section><section class="copyright">Copyright © 2019 Southeast Kansas Library System</section></footer></div></body></html>

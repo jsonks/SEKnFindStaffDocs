@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Nacho Item Modal · SEKnFind Staff Resources</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;&lt;em&gt;Created and tested in Koha 17.05.09 in Firefox&lt;/em&gt;&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Nacho Item Modal · SEKnFind Staff Resources"/><meta property="og:type" content="website"/><meta property="og:url" content="https://jsonks.github.io/SEKnFindStaffDocs/"/><meta property="og:description" content="&lt;p&gt;&lt;em&gt;Created and tested in Koha 17.05.09 in Firefox&lt;/em&gt;&lt;/p&gt;
+"/><meta property="og:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://jsonks.github.io/SEKnFindStaffDocs/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/SEKnFindStaffDocs/img/seknfind.svg"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/monokai-sublime.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/js/code-block-buttons.js"></script><script src="/SEKnFindStaffDocs/js/scrollSpy.js"></script><link rel="stylesheet" href="/SEKnFindStaffDocs/css/main.css"/><script src="/SEKnFindStaffDocs/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/SEKnFindStaffDocs/"><img class="logo" src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources"/><h2 class="headerTitleWithLogo">SEKnFind Staff Resources</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/SEKnFindStaffDocs/docs/documentation" target="_self">Documentation</a></li><li class=""><a href="/SEKnFindStaffDocs/docs/usergrouparchives" target="_self">User Group Archives</a></li><li class="siteNavGroupActive"><a href="/SEKnFindStaffDocs/docs/customization" target="_self">Customization</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>JS + CSS Projects</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Koha Administration Resources</h3><ul class=""><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/customization">Customizing Koha</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">JS + CSS Projects</h4><ul><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/additemhelper">Item Cataloging Helper</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/illitypedefaults">ILL Item Type Defaults</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/itypelimit">Item Type Limit Warning</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/megamenu">Megamenu</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/nachoitemmodal">Nacho Item Modal</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/newitemsharing">New Item Sharing</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/projects/patronautofilltoggle">Patron Autofill Toggle</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">SQL</h4><ul><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sqltips">SQL Tips</a></li><li class="navListItem"><a class="navItem" href="/SEKnFindStaffDocs/docs/sql/sharedsql">Shared SQL</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Nacho Item Modal</h1></header><article><div><span><p><em>Created and tested in Koha 17.05.09 in Firefox</em></p>
+<h2><a class="anchor" aria-hidden="true" id="problem"></a><a href="#problem" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Problem</h2>
+<p>A patron at Library A borrows and loses an item owned by Library B. Library A charges their patron for the item, but neglects to provide reimbursement or replacement for the item to Library B.</p>
+<h2><a class="anchor" aria-hidden="true" id="solution"></a><a href="#solution" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Solution</h2>
+<p>When an item that is owned by another library is marked lost, interrupt the process with a warning and the opportunity to print a reminder/invoice.</p>
+<iframe src="https://www.youtube.com/embed/e1tmEg17bnw?rel=0" allow="autoplay; encrypted-media" allowfullscreen="" style="display: block; margin:0 auto;" width="560" height="315" frameborder="0"></iframe>
+<h2><a class="anchor" aria-hidden="true" id="breakdown"></a><a href="#breakdown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Breakdown:</h2>
+<h3><a class="anchor" aria-hidden="true" id="intranetuserjs"></a><a href="#intranetuserjs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserJS</h3>
+<ol>
+<li>Retrieve info from the page and store in variables</li>
+<li>Build HTML components (modal, printable div)</li>
+<li>Input variables into HTML</li>
+<li>Add conditions for activating the code</li>
+<li>Add functionality to the buttons</li>
+</ol>
+<h3><a class="anchor" aria-hidden="true" id="intranetusercss"></a><a href="#intranetusercss" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserCSS</h3>
+<ol>
+<li>Set glowing rules for various browsers</li>
+<li>Assign glowing rules to a specific class</li>
+</ol>
+<h2><a class="anchor" aria-hidden="true" id="js"></a><a href="#js" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS</h2>
+<h4><a class="anchor" aria-hidden="true" id="retrieve-info-from-the-page-and-store-in-variables"></a><a href="#retrieve-info-from-the-page-and-store-in-variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Retrieve info from the page and store in variables</h4>
+<p>Each variable is pulled from the page and used either on the modal itself, or on the print dialog that opens. Variables include the current date, home library of the item, holding library of the item, replacement cost, title, barcode, and the currently logged in user’s name.</p>
+<p><img src="/SEKnFindStaffDocs/docs/assets/nachoVariables.png" alt="nachoVariables"></p>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> reimburseCurDate = $.datepicker.formatDate(<span class="hljs-string">'mm/dd/yy'</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+<span class="hljs-keyword">var</span> reimburseHomeLib = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(1) &gt; li"</span>).first().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+}).text();
+<span class="hljs-keyword">var</span> reimburseHoldingLib = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(2) &gt; li"</span>).first().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+}).text();
+<span class="hljs-keyword">var</span> reimburseCost = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(1) &gt; li"</span>).last().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+}).text();
+<span class="hljs-keyword">var</span> reimburseTitle = $(<span class="hljs-string">"#catalog_moredetail #catalogue_detail_biblio h2"</span>).text();
+<span class="hljs-keyword">var</span> reimburseBarcode = $(<span class="hljs-string">"#catalog_moredetail #catalogue_detail_biblio h3"</span>).text();
+<span class="hljs-keyword">var</span> loggedUser = $(<span class="hljs-string">".loggedinusername"</span>).text();
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="build-html-components"></a><a href="#build-html-components" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Build HTML components</h4>
+<p>HTML is built in multiple htmlStr lines to make it easier to read and modify. This code creates a modal using existing classes so styles will match existing modals in Koha. Aside from the modal, a hidden div is created to produce the printable reminder. Classes are assigned to components that will be filled with variable data.</p>
+<pre><code class="hljs css language-js">htmlStr = <span class="hljs-string">'&lt;div id="reimburseModal" class="modal fade in"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-dialog"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-content"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;form class="confirm"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-header"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;h2&gt;Wait! This is &lt;u&gt;not&lt;/u&gt; your item!&lt;/h2&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-body"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;p&gt;This item belongs to&lt;b&gt;&lt;span class="reimburseHomeLib"&gt;&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;p&gt;By marking this item lost, you agree to replace at full replacement cost: &lt;span class="reimburseCost"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div id="reimburseReminder" style="display:none;"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;h3&gt;Notice of Reimbursement&lt;/h3&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;hr&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;p&gt;Date: &lt;span class="reimburseCurDate"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;p&gt;This notice acts as a reminder for &lt;span class="reimburseHoldingLib"&gt;&lt;/span&gt;to reimburse &lt;span class="reimburseHomeLib" style="font-weight:bold;"&gt;&lt;/span&gt;in the amount of &lt;span class="reimburseCost" style="font-weight: bold;"&gt;&lt;/span&gt;for &lt;span class="reimburseTitle" style="text-decoration: underline;"&gt;&lt;/span&gt; ( &lt;span class="reimburseBarcode"&gt;&lt;/span&gt;).&lt;/p&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;p style="font-style: italic;"&gt;Managed by: &lt;span class="loggedUser"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;hr&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-footer"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;a id="printReminder" class="btn btn-default print"&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;i class="fa fa-print"&gt;&lt;/i&gt; Print a reminder&lt;/a&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;a id="closeReimburseModal" aria-hidden="true" type="submit" class="btn btn-danger deny"&gt;Close&lt;/a&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/form&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+htmlStr += <span class="hljs-string">'&lt;div class="modal-backdrop fade in" style="display:none;"&gt;&lt;/div&gt;'</span>;
+$(<span class="hljs-string">"#catalogue_detail_biblio"</span>).append(htmlStr);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="input-variables-into-html"></a><a href="#input-variables-into-html" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Input Variables into HTML</h4>
+<p>The classes assigned in the HTML above are used to insert the data stored in the earlier defined variables.</p>
+<pre><code class="hljs css language-js">$(<span class="hljs-string">".reimburseCurDate"</span>).html(reimburseCurDate);
+$(<span class="hljs-string">".reimburseHomeLib"</span>).html(reimburseHomeLib);
+$(<span class="hljs-string">".reimburseHoldingLib"</span>).html(reimburseHoldingLib);
+$(<span class="hljs-string">".reimburseCost"</span>).html(reimburseCost);
+$(<span class="hljs-string">".reimburseTitle"</span>).html(reimburseTitle);
+$(<span class="hljs-string">".reimburseBarcode"</span>).html(reimburseBarcode);
+$(<span class="hljs-string">".loggedUser"</span>).html(loggedUser);
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="add-conditions-for-activating-the-code"></a><a href="#add-conditions-for-activating-the-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add conditions for activating the code</h4>
+<p>Two conditions must be met before the code activates. First, the url must contain “itemnumber=” to ensure that only one item is displayed on the screen and all variables retrieved are accurate to that item. Second, the home library of the item must not match the current location of the item. If both criteria are met, then the onchange function is allowed to fire – whenever the value of the lost item dropdown changes to something other than 0, the modal will reveal.</p>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Determine if owner differs from holder</span>
+<span class="hljs-keyword">if</span> ((<span class="hljs-built_in">window</span>.location.href.indexOf(<span class="hljs-string">"itemnumber="</span>) &gt; <span class="hljs-number">-1</span>) &amp;&amp; (reimburseHomeLib != reimburseHoldingLib)) { <span class="hljs-comment">//only trigger if a single item is selected, and item home library does not match current library</span>
+    $(<span class="hljs-string">"select[name=itemlost]"</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).val() != <span class="hljs-string">"0"</span>) { <span class="hljs-comment">//trigger when the item lost dropdown is changed to a value other than 'blank'</span>
+            $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"block"</span>); <span class="hljs-comment">//pop up modal</span>
+            $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"block"</span>); <span class="hljs-comment">//pop up modal backdrop</span>
+        }
+    });
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="add-functionality-to-buttons"></a><a href="#add-functionality-to-buttons" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add functionality to buttons</h4>
+<p>The buttons need to know how to behave.</p>
+<p>For the “Print” button, the following functionality was added:</p>
+<ul>
+<li>Open a new window</li>
+<li>Populate the window with data from the aforementioned hidden div</li>
+<li>Open the print dialog</li>
+<li>Close the print window after printing</li>
+<li>Close the modal and modal backdrop after printing</li>
+<li>Add a ‘glow’ class to the ‘set status’ button after printing</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Print reminder button</span>
+$(<span class="hljs-string">"#printReminder"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    w = <span class="hljs-built_in">window</span>.open(); <span class="hljs-comment">//open print window when button is clicked</span>
+    w.document.write($(<span class="hljs-string">'#reimburseReminder'</span>).html()); <span class="hljs-comment">//capture only data in the reiminder div</span>
+    w.print(); <span class="hljs-comment">//open print dialog</span>
+    w.close(); <span class="hljs-comment">//close print window after printing/closing print dialog</span>
+    $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close the modal when print button is clicked</span>
+    $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//remove backdrop when print button is clicked</span>
+    $(<span class="hljs-string">"#catalog_moredetail input[value='Set status']"</span>).first().addClass(<span class="hljs-string">"buttonglow"</span>); <span class="hljs-comment">//emphasize set status button</span>
+});
+</code></pre>
+<p>For the “Close” button, the following functionality was added:</p>
+<ul>
+<li>Close the modal and modal backdrop</li>
+<li>Add a ‘glow’ class to the ‘set status’ button</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Close button</span>
+$(<span class="hljs-string">"#closeReimburseModal"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close modal when close button is clicked</span>
+    $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close backdrop when close button is clicked</span>
+    $(<span class="hljs-string">"#catalog_moredetail input[value='Set status']"</span>).first().addClass(<span class="hljs-string">"buttonglow"</span>); <span class="hljs-comment">//emphasize set status button</span>
+    });
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="css"></a><a href="#css" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CSS</h2>
+<h4><a class="anchor" aria-hidden="true" id="set-glowing-rules-for-various-browsers"></a><a href="#set-glowing-rules-for-various-browsers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set glowing rules for various browsers</h4>
+<pre><code class="hljs css language-css">@-<span class="hljs-keyword">webkit</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@-<span class="hljs-keyword">moz</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@-<span class="hljs-keyword">o</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="add-the-glow-to-a-certain-class"></a><a href="#add-the-glow-to-a-certain-class" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add the glow to a certain class</h4>
+<pre><code class="hljs css language-css"><span class="hljs-selector-class">.buttonglow</span> {
+  <span class="hljs-attribute">-webkit-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">-moz-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">-o-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="complete-code"></a><a href="#complete-code" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Complete Code:</h2>
+<h3><a class="anchor" aria-hidden="true" id="intranetuserjs-1"></a><a href="#intranetuserjs-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserJS</h3>
+<pre><code class="hljs css language-js"><span class="hljs-comment">//Nacho item modal</span>
+<span class="hljs-comment">//Alerts staff if they are about to mark an item lost that isn't theirs</span>
+$(<span class="hljs-built_in">document</span>).ready(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-comment">//Get variables to populate modal and print reminder</span>
+    <span class="hljs-keyword">var</span> reimburseCurDate = $.datepicker.formatDate(<span class="hljs-string">'mm/dd/yy'</span>, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>());
+    <span class="hljs-keyword">var</span> reimburseHomeLib = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(1) &gt; li"</span>).first().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+    }).text();
+    <span class="hljs-keyword">var</span> reimburseHoldingLib = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(2) &gt; li"</span>).first().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+    }).text();
+    <span class="hljs-keyword">var</span> reimburseCost = $(<span class="hljs-string">"#catalog_moredetail .bibliodetails:eq(1) &gt; li"</span>).last().contents().filter(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.nodeType == <span class="hljs-number">3</span>;
+    }).text();
+    <span class="hljs-keyword">var</span> reimburseTitle = $(<span class="hljs-string">"#catalog_moredetail #catalogue_detail_biblio h2"</span>).text();
+    <span class="hljs-keyword">var</span> reimburseBarcode = $(<span class="hljs-string">"#catalog_moredetail #catalogue_detail_biblio h3"</span>).text();
+    <span class="hljs-keyword">var</span> loggedUser = $(<span class="hljs-string">"#logged-in-info-full .loggedinusername"</span>).text();
+
+    <span class="hljs-comment">//Generate html for the modal and print notice</span>
+    htmlStr = <span class="hljs-string">'&lt;div id="reimburseModal" class="modal fade in"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-dialog"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-content"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;form class="confirm"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-header"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;h2&gt;Wait! This is &lt;u&gt;not&lt;/u&gt; your item!&lt;/h2&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-body"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;p&gt;This item belongs to&lt;b&gt;&lt;span class="reimburseHomeLib"&gt;&lt;/span&gt;&lt;/b&gt;&lt;/p&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;p&gt;By marking this item lost, you agree to replace at full replacement cost: &lt;span class="reimburseCost"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div id="reimburseReminder" style="display:none;"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;h3&gt;Notice of Reimbursement&lt;/h3&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;hr&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;p&gt;Date: &lt;span class="reimburseCurDate"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;p&gt;This notice acts as a reminder for &lt;span class="reimburseHoldingLib"&gt;&lt;/span&gt;to reimburse &lt;span class="reimburseHomeLib" style="font-weight:bold;"&gt;&lt;/span&gt;in the amount of &lt;span class="reimburseCost" style="font-weight: bold;"&gt;&lt;/span&gt;for &lt;span class="reimburseTitle" style="text-decoration: underline;"&gt;&lt;/span&gt; ( &lt;span class="reimburseBarcode"&gt;&lt;/span&gt;).&lt;/p&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;p style="font-style: italic;"&gt;Managed by: &lt;span class="loggedUser"&gt;&lt;/span&gt;&lt;/p&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;hr&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-footer"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;a id="printReminder" class="btn btn-default print"&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;i class="fa fa-print"&gt;&lt;/i&gt; Print a reminder&lt;/a&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;a id="closeReimburseModal" aria-hidden="true" type="submit" class="btn btn-danger deny"&gt;Close&lt;/a&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/form&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;/div&gt;'</span>;
+    htmlStr += <span class="hljs-string">'&lt;div class="modal-backdrop fade in" style="display:none;"&gt;&lt;/div&gt;'</span>;
+
+    $(<span class="hljs-string">"#catalogue_detail_biblio"</span>).append(htmlStr);
+
+    <span class="hljs-comment">//Input variables into html</span>
+    $(<span class="hljs-string">".reimburseCurDate"</span>).html(reimburseCurDate);
+    $(<span class="hljs-string">".reimburseHomeLib"</span>).html(reimburseHomeLib);
+    $(<span class="hljs-string">".reimburseHoldingLib"</span>).html(reimburseHoldingLib);
+    $(<span class="hljs-string">".reimburseCost"</span>).html(reimburseCost);
+    $(<span class="hljs-string">".reimburseTitle"</span>).html(reimburseTitle);
+    $(<span class="hljs-string">".reimburseBarcode"</span>).html(reimburseBarcode);
+    $(<span class="hljs-string">".loggedUser"</span>).html(loggedUser);
+
+    <span class="hljs-comment">//Determine if owner differs from holder</span>
+    <span class="hljs-keyword">if</span> ((<span class="hljs-built_in">window</span>.location.href.indexOf(<span class="hljs-string">"itemnumber="</span>) &gt; <span class="hljs-number">-1</span>) &amp;&amp; (reimburseHomeLib != reimburseHoldingLib)) { <span class="hljs-comment">//only trigger if a single item is selected, and item home library does not match current library</span>
+        $(<span class="hljs-string">"select[name=itemlost]"</span>).change(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+            <span class="hljs-keyword">if</span> ($(<span class="hljs-keyword">this</span>).val() != <span class="hljs-string">"0"</span>) { <span class="hljs-comment">//trigger when the item lost dropdown is changed to a value other than 'blank'</span>
+                $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"block"</span>); <span class="hljs-comment">//pop up modal</span>
+                $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"block"</span>); <span class="hljs-comment">//pop up modal backdrop</span>
+            }
+        });
+    }
+
+    <span class="hljs-comment">//Print reminder button</span>
+    $(<span class="hljs-string">"#printReminder"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        w = <span class="hljs-built_in">window</span>.open(); <span class="hljs-comment">//open print window when button is clicked</span>
+        w.document.write($(<span class="hljs-string">'#reimburseReminder'</span>).html()); <span class="hljs-comment">//capture only data in the reiminder div</span>
+        w.print(); <span class="hljs-comment">//open print dialog</span>
+        w.close(); <span class="hljs-comment">//close print window after printing/closing print dialog</span>
+        $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close the modal when print button is clicked</span>
+        $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//remove backdrop when print button is clicked</span>
+        $(<span class="hljs-string">"#catalog_moredetail input[value='Set status']"</span>).first().addClass(<span class="hljs-string">"buttonglow"</span>); <span class="hljs-comment">//emphasize set status button</span>
+    });
+
+    <span class="hljs-comment">//Close button</span>
+    $(<span class="hljs-string">"#closeReimburseModal"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        $(<span class="hljs-string">"#reimburseModal"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close modal when close button is clicked</span>
+        $(<span class="hljs-string">".modal-backdrop"</span>).css(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>); <span class="hljs-comment">//close backdrop when close button is clicked</span>
+        $(<span class="hljs-string">"#catalog_moredetail input[value='Set status']"</span>).first().addClass(<span class="hljs-string">"buttonglow"</span>); <span class="hljs-comment">//emphasize set status button</span>
+    });
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="intranetusercss-1"></a><a href="#intranetusercss-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IntranetUserCSS</h3>
+<pre><code class="hljs css language-css">@-<span class="hljs-keyword">webkit</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-webkit-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@-<span class="hljs-keyword">moz</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">-moz-box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@-<span class="hljs-keyword">o</span>-<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+@<span class="hljs-keyword">keyframes</span> glowing {
+  0% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+  50% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#FF0000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">40px</span> <span class="hljs-number">#FF0000</span>; }
+  100% { <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#B20000</span>; <span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">3px</span> <span class="hljs-number">#B20000</span>; }
+}
+
+<span class="hljs-selector-class">.buttonglow</span> {
+  <span class="hljs-attribute">-webkit-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">-moz-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">-o-animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+  <span class="hljs-attribute">animation</span>: glowing <span class="hljs-number">1500ms</span> infinite;
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/SEKnFindStaffDocs/docs/projects/megamenu"><span class="arrow-prev">← </span><span>Megamenu</span></a><a class="docs-next button" href="/SEKnFindStaffDocs/docs/projects/newitemsharing"><span>New Item Sharing</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#problem">Problem</a></li><li><a href="#solution">Solution</a></li><li><a href="#breakdown">Breakdown:</a><ul class="toc-headings"><li><a href="#intranetuserjs">IntranetUserJS</a></li><li><a href="#intranetusercss">IntranetUserCSS</a></li></ul></li><li><a href="#js">JS</a></li><li><a href="#css">CSS</a></li><li><a href="#complete-code">Complete Code:</a><ul class="toc-headings"><li><a href="#intranetuserjs-1">IntranetUserJS</a></li><li><a href="#intranetusercss-1">IntranetUserCSS</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/SEKnFindStaffDocs/" class="nav-home"><img src="/SEKnFindStaffDocs/img/seknfind.svg" alt="SEKnFind Staff Resources" width="66" height="58"/></a><div><h5>Resources</h5><a href="/SEKnFindStaffDocs/docs/documentation">Documentation</a><a href="/SEKnFindStaffDocs/docs/usergrouparchives">User Group Archives</a><a href="/SEKnFindStaffDocs/docs/customization">Customization</a></div><div><h5>Koha</h5><a href="https://staff.seknfind.org" target="_blank">Staff login</a><a href="https://www.seknfind.org" target="_blank">OPAC</a></div><div><h5>More</h5><a href="https://sekls.org/" target="_blank">SEKLS</a><a href="http://www.libraryaware.com/login" target="_blank">LibraryAware Login</a><a href="https://www.libraryaware.com/1652/Subscribers/Subscribe" target="_blank">Newsletter Subscribe</a></div></section><section class="copyright">Copyright © 2019 Southeast Kansas Library System</section></footer></div></body></html>
