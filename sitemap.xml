@@ -9,7 +9,7 @@
 <url> <loc>https://training.seknfind.org/blog/2017/04/10/blog-post-two</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://training.seknfind.org/blog/2016/03/11/blog-post</loc> <changefreq>weekly</changefreq> <priority>0.3</priority> </url>
 <url> <loc>https://training.seknfind.org/docs/customization</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/customization" /> </url>
-<url> <loc>https://training.seknfind.org/docs/doc1</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/doc1" /> </url>
+<url> <loc>https://training.seknfind.org/docs/search</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/search" /> </url>
 <url> <loc>https://training.seknfind.org/docs/doc2</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/doc2" /> </url>
 <url> <loc>https://training.seknfind.org/docs/doc3</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/doc3" /> </url>
 <url> <loc>https://training.seknfind.org/docs/doc4</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/doc4" /> </url>
@@ -21,6 +21,7 @@
 <url> <loc>https://training.seknfind.org/docs/helpers/prefixes</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/helpers/prefixes" /> </url>
 <url> <loc>https://training.seknfind.org/docs/helpers/troubletracker</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/helpers/troubletracker" /> </url>
 <url> <loc>https://training.seknfind.org/docs/projects/additemhelper</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/projects/additemhelper" /> </url>
+<url> <loc>https://training.seknfind.org/docs/projects/batchmodlimits</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/projects/batchmodlimits" /> </url>
 <url> <loc>https://training.seknfind.org/docs/projects/illitypedefaults</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/projects/illitypedefaults" /> </url>
 <url> <loc>https://training.seknfind.org/docs/projects/itypelimit</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/projects/itypelimit" /> </url>
 <url> <loc>https://training.seknfind.org/docs/projects/megamenu</loc> <changefreq>hourly</changefreq> <priority>1.0</priority> <xhtml:link rel="alternate" hreflang="en" href="https://training.seknfind.org/docs/projects/megamenu" /> </url>
